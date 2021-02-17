@@ -74,11 +74,11 @@ class PlayerRoster():
 
         # Creating a dictionary with players' stats {id: ast, oreb, dreb, stl, blk, turnover, fgpct, fgm, fga, fg3m, fg3a, fg3pct, ftpct, ftm, gamesplayed}
         for player in playerStats["data"]:
-			# statAdjust = {player id:year} - Adjusting the year for specific players due to injury/other reasons
+            # statAdjust = {player id:year} - Adjusting the year for specific players due to injury/other reasons
             # 115 = Stephen Curry, 27 = Lonzo, 424 = JR Smith, 17 = Carmelo Anthony, 357 = Victor Oladipo, 274 = Kawhi Leonard, 
-			# 237 = Lebron James, 467 = John Wall, 192 = James Harden, 57 = Devin Booker
+            # 237 = Lebron James, 467 = John Wall, 192 = James Harden, 57 = Devin Booker
             statAdjust = {115:2015, 27:2019, 424:2012, 17:2012, 357:2017, 274:2018, 
-			              237:2012, 467:2016, 192:2018, 57:2018}
+                          237:2012, 467:2016, 192:2018, 57:2018}
             if player["player_id"] in statAdjust:
                 modRequestStringYear = statAdjust[player["player_id"]]
                 modRequestString = ("https://www.balldontlie.io/api/v1/season_averages?season=" 
