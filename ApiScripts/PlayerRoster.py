@@ -82,21 +82,21 @@ class PlayerRoster():
             if player["player_id"] in statAdjust:
                 modRequestStringYear = statAdjust[player["player_id"]]
                 modRequestString = ("https://www.balldontlie.io/api/v1/season_averages?season=" 
-				                    + str(modRequestStringYear) + "&player_ids[]=" + str(player["player_id"]))
+                                   + str(modRequestStringYear) + "&player_ids[]=" + str(player["player_id"]))
                 modResponse = requests.get(modRequestString)
                 modPlayerStats = modResponse.json()
                 player = modPlayerStats["data"][0]
                 statDict[player["player_id"]] = [player["ast"], player["oreb"], player["dreb"], 
-				                                player["stl"], player["blk"], player["turnover"], 
-												player["fg_pct"], player["fgm"], player["fga"], 
-												player["fg3m"], player["fg3a"], player["fg3_pct"], 
-												player["ft_pct"], player["ftm"], player["games_played"]]
+                                                player["stl"], player["blk"], player["turnover"], 
+                                                player["fg_pct"], player["fgm"], player["fga"], 
+                                                player["fg3m"], player["fg3a"], player["fg3_pct"], 
+                                                player["ft_pct"], player["ftm"], player["games_played"]]
                 continue
             statDict[player["player_id"]] = [player["ast"], player["oreb"], player["dreb"], 
-			                                player["stl"], player["blk"], player["turnover"], 
-											player["fg_pct"], player["fgm"], player["fga"], 
-											player["fg3m"], player["fg3a"], player["fg3_pct"], 
-											player["ft_pct"], player["ftm"], player["games_played"]]
+                                            player["stl"], player["blk"], player["turnover"], 
+                                            player["fg_pct"], player["fgm"], player["fga"], 
+                                            player["fg3m"], player["fg3a"], player["fg3_pct"], 
+                                            player["ft_pct"], player["ftm"], player["games_played"]]
         playerValue = self.calculatePlayerValue(statDict)
         return int(playerValue)
 
